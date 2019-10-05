@@ -10,6 +10,11 @@ namespace BeerhallEF.Data.Mapping
         {
             #region Table
             builder.ToTable("Course");
+
+            // Table-per-Hierarchy Strategy (https://docs.microsoft.com/en-us/ef/core/modeling/relational/inheritance)
+            builder.HasDiscriminator<string>("Type")
+                    .HasValue<OnlineCourse>("Online")
+                    .HasValue<OnsiteCourse>("Onsite");
             #endregion
 
             #region Properties
