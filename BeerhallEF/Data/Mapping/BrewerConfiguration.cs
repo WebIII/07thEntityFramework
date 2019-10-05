@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BeerhallEF.Data.Mapping
 {
-    class BrewerConfiguration : IEntityTypeConfiguration<Brewer>
+    internal class BrewerConfiguration : IEntityTypeConfiguration<Brewer>
     {
         public void Configure(EntityTypeBuilder<Brewer> builder)
         {
@@ -29,6 +29,13 @@ namespace BeerhallEF.Data.Mapping
             builder.Property(t => t.Street)
                 .HasMaxLength(100);
             #endregion Properties
+
+            #region associations
+            builder.HasMany(t => t.Beers)
+                  .WithOne()
+                  .IsRequired()
+                  .OnDelete(DeleteBehavior.Cascade);
+            #endregion
         }
     }
 }

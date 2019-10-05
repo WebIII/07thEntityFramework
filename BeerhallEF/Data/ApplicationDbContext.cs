@@ -8,6 +8,8 @@ namespace BeerhallEF.Data
     {
         #region DbSets
         public DbSet<Brewer> Brewers { get; set; }
+        public DbSet<Beer> Beers { get; set; }
+        //(Optional due to type discovery, but it's a good practise to be explicit)
         #endregion
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -21,6 +23,7 @@ namespace BeerhallEF.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new BrewerConfiguration());
+            modelBuilder.ApplyConfiguration(new BeerConfiguration());
         }
     }
 }
