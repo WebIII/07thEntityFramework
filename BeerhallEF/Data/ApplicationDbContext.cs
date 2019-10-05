@@ -11,6 +11,8 @@ namespace BeerhallEF.Data
         public DbSet<Beer> Beers { get; set; }
         //(Optional due to type discovery, but it's a good practise to be explicit)
         public DbSet<Location> Locations { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Category> Categories { get; set; }
         #endregion
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -26,6 +28,9 @@ namespace BeerhallEF.Data
             modelBuilder.ApplyConfiguration(new BrewerConfiguration());
             modelBuilder.ApplyConfiguration(new BeerConfiguration());
             modelBuilder.ApplyConfiguration(new LocationConfiguration());
+            modelBuilder.ApplyConfiguration(new CourseConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoryBrewerConfiguration());
         }
     }
 }
