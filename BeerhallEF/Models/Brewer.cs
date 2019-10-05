@@ -23,6 +23,10 @@ namespace BeerhallEF.Models
         public int NrOfBeers => Beers.Count;
         #endregion
 
+        #region Navigational Properties
+        public Location Location { get; set; }
+        #endregion
+
         #region Constructors
         protected Brewer()
         {

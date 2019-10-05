@@ -35,6 +35,12 @@ namespace BeerhallEF.Data.Mapping
                   .WithOne()
                   .IsRequired()
                   .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(t => t.Location)
+                .WithMany()
+                .HasForeignKey(nameof(Location.PostalCode))
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Restrict);
             #endregion
         }
     }

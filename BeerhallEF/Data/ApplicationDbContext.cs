@@ -10,6 +10,7 @@ namespace BeerhallEF.Data
         public DbSet<Brewer> Brewers { get; set; }
         public DbSet<Beer> Beers { get; set; }
         //(Optional due to type discovery, but it's a good practise to be explicit)
+        public DbSet<Location> Locations { get; set; }
         #endregion
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -24,6 +25,7 @@ namespace BeerhallEF.Data
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new BrewerConfiguration());
             modelBuilder.ApplyConfiguration(new BeerConfiguration());
+            modelBuilder.ApplyConfiguration(new LocationConfiguration());
         }
     }
 }
