@@ -68,7 +68,7 @@ namespace BeerhallEF
 
 
             /*----------------------Loading related data------------------------------*/
-            Console.WriteLine("\n---All beers from brewer with id 1---");
+            Console.WriteLine("\n---All beers from brewer with name Bavik---");
             _brewer = null;
             PrintBeers(_brewer?.Beers);
 
