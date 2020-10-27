@@ -170,7 +170,7 @@ namespace BeerhallEF
             Console.WriteLine("Number of cities after insert:" + context.Locations.Count());
 
             Console.WriteLine("\n---Removing relationships: Remove the first Beer from Bavik - Delete --");
-            _brewer = context.Brewers.Single(b => b.Name == "Bavik");
+            _brewer = context.Brewers.Include(b=>b.Beers).Single(b => b.Name == "Bavik");
             Beer beer = _brewer.Beers.FirstOrDefault();
 
         }
